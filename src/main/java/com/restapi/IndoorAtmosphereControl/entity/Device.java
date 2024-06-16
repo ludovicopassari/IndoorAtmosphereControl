@@ -24,7 +24,7 @@ public class Device {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private UserInfo user;
 
     @ManyToMany
     @JoinTable(name = "device_sensors",
