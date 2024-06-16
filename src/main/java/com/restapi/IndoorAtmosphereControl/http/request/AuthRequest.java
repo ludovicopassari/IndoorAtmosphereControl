@@ -1,4 +1,4 @@
-package com.restapi.IndoorAtmosphereControl.requests;
+package com.restapi.IndoorAtmosphereControl.http.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AuthRequest {
 
-    private String username;
+    private String email;
     private String password;
 
 }

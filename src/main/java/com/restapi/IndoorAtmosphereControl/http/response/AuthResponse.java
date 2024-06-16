@@ -1,4 +1,4 @@
-package com.restapi.IndoorAtmosphereControl.requests;
+package com.restapi.IndoorAtmosphereControl.http.response;
 
 public class AuthResponse {
     private String token;

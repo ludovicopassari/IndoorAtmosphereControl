@@ -2,7 +2,6 @@ package com.restapi.IndoorAtmosphereControl.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -11,12 +10,14 @@ import java.util.List;
 
 public class UserInfoDetails implements UserDetails {
 
-    private String name;
+    private String username;
+    private String email;
     private String password;
     private UserRole role;
 
     public UserInfoDetails(UserInfo userInfo){
-        this.name = userInfo.getUsername();
+        this.username = userInfo.getUsername();
+        this.email = userInfo.getEmail();
         this.password = userInfo.getPassword();
         role = UserRole.valueOf(userInfo.getRole().toString());
     }
@@ -34,8 +35,7 @@ public class UserInfoDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.name;
-        // todo capisci il perchè
+        return this.username;
     }
 
     @Override
@@ -57,4 +57,13 @@ public class UserInfoDetails implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 }
