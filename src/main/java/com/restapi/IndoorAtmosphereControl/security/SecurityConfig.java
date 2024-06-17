@@ -35,6 +35,15 @@ public class SecurityConfig {
         return new UserInfoService();
     }
 
+    /*
+        Il metodo securityFilterChain è un metodo di configurazione in Spring Security, annotato con @Bean.
+        Questo metodo è responsabile per configurare e definire le regole di sicurezza per le richieste HTTP nella tua applicazione.
+        Vediamo nel dettaglio cosa fa ciascuna parte del metodo
+
+        Questo metodo definisce e restituisce una catena di filtri di sicurezza (SecurityFilterChain),
+        che sono applicati a tutte le richieste HTTP che passano attraverso l'applicazione.
+        La catena di filtri gestisce l'autenticazione, l'autorizzazione e la gestione delle sessioni in base alle regole specificate.
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(csrf -> csrf.disable())
