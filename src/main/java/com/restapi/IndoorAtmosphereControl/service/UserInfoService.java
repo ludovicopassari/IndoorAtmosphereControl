@@ -34,4 +34,10 @@ public class UserInfoService implements UserDetailsService {
     }
 
 
+    public String getIdByEmail(String email){
+        Optional<UserInfo> userDetail = repository.findByEmail(email);
+        return  userDetail.get().getId().toString();
+    }
+
+
 }
