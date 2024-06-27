@@ -1,4 +1,4 @@
-package com.restapi.IndoorAtmosphereControl.entity;
+package com.restapi.IndoorAtmosphereControl.entity.unused;
 
 import jakarta.persistence.*;
 

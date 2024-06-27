@@ -49,7 +49,7 @@ public class SecurityConfig {
         return http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/register","/login").permitAll())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/user/**").authenticated())
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/auth/admin/**").authenticated())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/auth/admin/**").authenticated()) //non usato piu
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class)
@@ -66,14 +66,16 @@ public class SecurityConfig {
     }
 
 
-    // Password Encoding
+    /*
+     * usato per hashare le password
+     */
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     /*
-
-
     * AuthenticationManager in Spring Security è un'interfaccia fondamentale che gestisce
     * il processo di autenticazione degli utenti all'interno di un'applicazione.
     * Il compito principale di AuthenticationManager è quello di accettare un oggetto Authentication
