@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<endpoint>
+    <domain>javaspringapp</domain>
+    <port>8081</port>
+    <apibaseendpoint>/api/devices/</apibaseendpoint>
+</endpoint>

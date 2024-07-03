@@ -1,7 +1,8 @@
 version: '3.8'
 
 services:
-  mariadb:
+
+  mariadbservice:
     image: mariadb:latest
     container_name: mariadb_indoor_atmosphere_control
     restart: always
@@ -14,6 +15,32 @@ services:
       - "5050:3306"
     volumes:
       - mariadb_appdata:/var/lib/mysql
+    networks:
+      - my-network
+
+  java-auth-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: java-auth
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://mariadbservice:3306/indoor_atmosphere_control
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: passwd
+    restart: always
+    ports:
+      - "4040:8080"
+
+    depends_on:
+      - mariadbservice
+
+    networks:
+      - my-network
+
 
 volumes:
   mariadb_appdata:
+
+networks:
+  my-network:
+    driver: bridge

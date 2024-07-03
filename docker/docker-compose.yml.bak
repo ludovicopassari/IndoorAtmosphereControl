@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb_indoor_atmosphere_control
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: indoor_atmosphere_control
+      MARIADB_USER: user
+      MARIADB_PASSWORD: passwd
+    ports:
+      - "5050:3306"
+    volumes:
+      - mariadb_appdata:/var/lib/mysql
+
+volumes:
+  mariadb_appdata:
