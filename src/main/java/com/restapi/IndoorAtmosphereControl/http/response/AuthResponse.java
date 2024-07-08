@@ -1,6 +1,6 @@
 package com.restapi.IndoorAtmosphereControl.http.response;
 
-public class AuthResponse {
+public class AuthResponse extends Response {
     private String token;
 
     public AuthResponse(String token) {

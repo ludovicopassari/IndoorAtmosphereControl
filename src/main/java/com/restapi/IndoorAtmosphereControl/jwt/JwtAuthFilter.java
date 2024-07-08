@@ -70,7 +70,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    private void handleJwtException(HttpServletResponse response, ExpiredJwtException e) throws IOException {
+    private void handleJwtException(HttpServletResponse response, Exception e) throws IOException {
         // Puoi personalizzare la gestione dell'eccezione ExpiredJwtException qui
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.getWriter().write("Token JWT scaduto o non valido");

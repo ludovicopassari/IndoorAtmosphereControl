@@ -31,8 +31,6 @@ public class UserInfo {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-
-
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private UserRole role;
